@@ -1,7 +1,7 @@
 version: "3"
 services:
   todofront:
-    build: todo-app/front-end/
+    image: todofrontend
     restart: on-failure
     ports:
       - 3000:3000
@@ -10,12 +10,12 @@ services:
     depends_on:
       - todoback
   todoback:
-    build: todo-app/back-end/
+    image: todobackend
     restart: on-failure
     ports:
       - 3001:3001
   todotests:
-    build: todo-app/tests/
+    image: todotests
     restart: on-failure
     environment:
       - FRONT_HOST=todofront
